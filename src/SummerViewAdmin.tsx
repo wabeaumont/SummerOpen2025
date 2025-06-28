@@ -498,7 +498,7 @@ const SummerViewAdmin = () => {
                 <h4 className="font-semibold text-red-900 mb-2">Critical Issues</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-red-700">Password < 8 chars</span>
+                    <span className="text-red-700">Password &lt; 8 chars</span>
                     <span className="font-semibold text-red-900">12 users</span>
                   </div>
                   <div className="flex justify-between">
@@ -515,7 +515,7 @@ const SummerViewAdmin = () => {
                 <h4 className="font-semibold text-yellow-900 mb-2">Warning Issues</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-yellow-700">Age > 90 days</span>
+                    <span className="text-yellow-700">Age &gt; 90 days</span>
                     <span className="font-semibold text-yellow-900">156 users</span>
                   </div>
                   <div className="flex justify-between">
