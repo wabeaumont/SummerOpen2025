@@ -93,7 +93,6 @@ const SummerViewAdmin = () => {
     { id: 'passwords', label: 'Password Analysis', icon: Lock },
     { id: 'phishing', label: 'Phishing Campaigns', icon: Target },
     { id: 'training', label: 'Security Training', icon: BookOpen },
-    { id: 'users', label: 'User Management', icon: Users },
     { id: 'incidents', label: 'Incidents', icon: Activity },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
@@ -189,6 +188,90 @@ const SummerViewAdmin = () => {
     { metric: 'Reporting Rate', value: '+14%', trend: 'Increasing', positive: true },
     { metric: 'Avg. Time to Report', value: '3.2 min', trend: 'Decreasing', positive: true },
     { metric: 'Repeat Clickers', value: '18 users', trend: 'Decreasing', positive: true },
+  ];
+
+  const securityPostureMetrics = [
+    { category: 'Password Security', score: 68, impact: -12, issues: ['23 weak passwords', '156 passwords > 90 days', '34 reused passwords'] },
+    { category: 'Patch Management', score: 72, impact: -10, issues: ['12 critical OS updates', '45 browser updates pending', '8 security patches overdue'] },
+    { category: 'Access Control', score: 85, impact: -5, issues: ['5 users with excessive privileges', '12 inactive accounts', '3 shared accounts'] },
+    { category: 'Network Security', score: 92, impact: -2, issues: ['2 open ports', '1 misconfigured firewall rule'] },
+    { category: 'Data Protection', score: 89, impact: -3, issues: ['8 unencrypted files', '4 data retention violations'] },
+    { category: 'Incident Response', score: 81, impact: -7, issues: ['3 unresolved medium incidents', '1 overdue security review'] },
+  ];
+
+  const phishingUserResults = [
+    { 
+      id: 1, 
+      name: 'John Doe', 
+      email: 'john.doe@company.com', 
+      campaign: 'Q1 2024 Baseline Test',
+      result: 'Failed', 
+      action: 'Clicked Link', 
+      timeToClick: '2.3 min',
+      trainingAssigned: 'Phishing Recognition & Response',
+      trainingStatus: 'Completed',
+      completionDate: '2024-03-20'
+    },
+    { 
+      id: 2, 
+      name: 'Sarah Smith', 
+      email: 'sarah.smith@company.com', 
+      campaign: 'Q1 2024 Baseline Test',
+      result: 'Passed', 
+      action: 'Reported as Phishing', 
+      timeToReport: '1.8 min',
+      trainingAssigned: null,
+      trainingStatus: null,
+      completionDate: null
+    },
+    { 
+      id: 3, 
+      name: 'Mike Johnson', 
+      email: 'mike.johnson@company.com', 
+      campaign: 'Holiday Scam Simulation',
+      result: 'Failed', 
+      action: 'Entered Credentials', 
+      timeToClick: '0.8 min',
+      trainingAssigned: 'Advanced Security Awareness',
+      trainingStatus: 'In Progress',
+      completionDate: null
+    },
+    { 
+      id: 4, 
+      name: 'Lisa Wilson', 
+      email: 'lisa.wilson@company.com', 
+      campaign: 'Holiday Scam Simulation',
+      result: 'Passed', 
+      action: 'Reported as Phishing', 
+      timeToReport: '2.1 min',
+      trainingAssigned: null,
+      trainingStatus: null,
+      completionDate: null
+    },
+    { 
+      id: 5, 
+      name: 'David Brown', 
+      email: 'david.brown@company.com', 
+      campaign: 'Tax Season Phishing',
+      result: 'Failed', 
+      action: 'Downloaded Attachment', 
+      timeToClick: '1.5 min',
+      trainingAssigned: 'Email Security Best Practices',
+      trainingStatus: 'Not Started',
+      completionDate: null
+    },
+    { 
+      id: 6, 
+      name: 'Emma Davis', 
+      email: 'emma.davis@company.com', 
+      campaign: 'Tax Season Phishing',
+      result: 'Passed', 
+      action: 'Ignored Email', 
+      timeToClick: null,
+      trainingAssigned: null,
+      trainingStatus: null,
+      completionDate: null
+    },
   ];
 
   const trainingModules = [
@@ -415,7 +498,7 @@ const SummerViewAdmin = () => {
                 <h4 className="font-semibold text-red-900 mb-2">Critical Issues</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-red-700">Password &lt; 8 chars</span>
+                    <span className="text-red-700">Password < 8 chars</span>
                     <span className="font-semibold text-red-900">12 users</span>
                   </div>
                   <div className="flex justify-between">
@@ -432,7 +515,7 @@ const SummerViewAdmin = () => {
                 <h4 className="font-semibold text-yellow-900 mb-2">Warning Issues</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-yellow-700">Age &gt; 90 days</span>
+                    <span className="text-yellow-700">Age > 90 days</span>
                     <span className="font-semibold text-yellow-900">156 users</span>
                   </div>
                   <div className="flex justify-between">
@@ -574,6 +657,83 @@ const SummerViewAdmin = () => {
           </div>
         </div>
       </div>
+
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div className="p-4 lg:p-6 border-b border-gray-100">
+          <h3 className="text-lg lg:text-xl font-bold text-gray-900 flex items-center">
+            <Users className="w-5 h-5 mr-2 text-blue-600" />
+            Individual User Results
+          </h3>
+        </div>
+        <div className="p-4 lg:p-6">
+          <div className="space-y-4">
+            {phishingUserResults.map((user) => (
+              <div key={user.id} className="p-4 lg:p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <span className={`px-3 py-1 rounded-lg text-sm font-semibold ${
+                        user.result === 'Passed' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                      }`}>
+                        {user.result}
+                      </span>
+                      <span className="font-semibold text-gray-900">{user.name}</span>
+                      <span className="text-gray-600 text-sm">({user.email})</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <span className="text-gray-600">Campaign: </span>
+                        <span className="font-medium text-gray-900">{user.campaign}</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-600">Action: </span>
+                        <span className="font-medium text-gray-900">{user.action}</span>
+                      </div>
+                      {user.timeToClick && (
+                        <div>
+                          <span className="text-gray-600">Time to Click: </span>
+                          <span className="font-medium text-red-600">{user.timeToClick}</span>
+                        </div>
+                      )}
+                      {user.timeToReport && (
+                        <div>
+                          <span className="text-gray-600">Time to Report: </span>
+                          <span className="font-medium text-green-600">{user.timeToReport}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {user.trainingAssigned && (
+                    <div className="lg:w-80 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                      <h5 className="font-semibold text-gray-900 text-sm mb-2">Assigned Training</h5>
+                      <div className="space-y-2 text-sm">
+                        <div className="font-medium text-gray-800">{user.trainingAssigned}</div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Status:</span>
+                          <span className={`px-2 py-1 rounded-lg text-xs font-semibold ${
+                            user.trainingStatus === 'Completed' ? 'bg-green-100 text-green-700' :
+                            user.trainingStatus === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                            'bg-yellow-100 text-yellow-700'
+                          }`}>
+                            {user.trainingStatus}
+                          </span>
+                        </div>
+                        {user.completionDate && (
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-600">Completed:</span>
+                            <span className="text-gray-900 font-medium">{user.completionDate}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 
@@ -646,11 +806,136 @@ const SummerViewAdmin = () => {
       case 'security':
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Security Posture</h2>
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 lg:p-8 text-center">
-              <Shield className="w-12 h-12 lg:w-16 lg:h-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">Overall Security Score: 78/100</h3>
-              <p className="text-gray-600 text-sm lg:text-base">Your organization's security posture is good but needs improvement in password policies and patch management.</p>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Security Posture</h2>
+              <div className="flex items-center">
+                <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-xl font-semibold flex items-center text-sm">
+                  <AlertTriangle className="w-4 h-4 mr-2" />
+                  Score: 78/100
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 lg:p-8">
+              <div className="text-center mb-8">
+                <div className="relative w-32 h-32 mx-auto mb-4">
+                  <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 120 120">
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="50"
+                      stroke="#e5e7eb"
+                      strokeWidth="8"
+                      fill="transparent"
+                    />
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="50"
+                      stroke="url(#gradient)"
+                      strokeWidth="8"
+                      fill="transparent"
+                      strokeDasharray={`${78 * 3.14159} ${(100 - 78) * 3.14159}`}
+                      strokeLinecap="round"
+                    />
+                    <defs>
+                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#3b82f6" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-900">78</div>
+                      <div className="text-sm text-gray-600">Score</div>
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">Overall Security Score</h3>
+                <p className="text-gray-600 text-sm lg:text-base">Your organization's security posture needs improvement in password policies and patch management.</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {securityPostureMetrics.map((metric, index) => (
+                  <div key={index} className="p-4 lg:p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="font-bold text-gray-900 text-lg">{metric.category}</h4>
+                      <div className="flex items-center space-x-2">
+                        <span className={`text-sm font-semibold px-2 py-1 rounded-lg ${
+                          metric.score >= 90 ? 'bg-green-100 text-green-700' :
+                          metric.score >= 80 ? 'bg-blue-100 text-blue-700' :
+                          metric.score >= 70 ? 'bg-yellow-100 text-yellow-700' :
+                          'bg-red-100 text-red-700'
+                        }`}>
+                          {metric.score}/100
+                        </span>
+                        <span className="text-sm font-semibold text-red-600">
+                          {metric.impact} pts
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <div className="w-full bg-gray-200 rounded-full h-3">
+                        <div 
+                          className={`h-3 rounded-full transition-all duration-300 ${
+                            metric.score >= 90 ? 'bg-green-500' :
+                            metric.score >= 80 ? 'bg-blue-500' :
+                            metric.score >= 70 ? 'bg-yellow-500' :
+                            'bg-red-500'
+                          }`}
+                          style={{ width: `${metric.score}%` }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h5 className="font-semibold text-gray-700 text-sm">Key Issues:</h5>
+                      {metric.issues.map((issue, issueIndex) => (
+                        <div key={issueIndex} className="flex items-center space-x-2 text-sm text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-red-500 rounded-full flex-shrink-0"></div>
+                          <span>{issue}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 p-4 lg:p-6 bg-blue-50 rounded-xl border border-blue-200">
+                <h4 className="font-bold text-blue-900 text-lg mb-3">Recommended Actions</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Enforce stronger password policies</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Schedule critical security patches</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Review user access privileges</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Implement MFA for all users</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Update incident response procedures</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <span className="text-blue-800">Encrypt sensitive data repositories</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -716,17 +1001,6 @@ const SummerViewAdmin = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        );
-      case 'users':
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">User Management</h2>
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 lg:p-8 text-center">
-              <Users className="w-12 h-12 lg:w-16 lg:h-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">User Activity Overview</h3>
-              <p className="text-gray-600 text-sm lg:text-base">Monitor user access patterns, permissions, and security compliance across the organization.</p>
             </div>
           </div>
         );
