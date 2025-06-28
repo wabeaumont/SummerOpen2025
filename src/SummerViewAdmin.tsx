@@ -74,11 +74,6 @@ const SummerViewAdmin = () => {
                 </button>
               </form>
 
-              <div className="mt-6 text-center">
-                <p className="text-sm text-gray-500">
-                  Enter any credentials to access the dashboard
-                </p>
-              </div>
             </div>
           </div>
         </div>
