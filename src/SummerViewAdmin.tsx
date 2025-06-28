@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, Users, Settings, FileText, Bell, Search, Menu, Home, TrendingUp, Calendar, Mail, User, LogOut, Shield, AlertTriangle, CheckCircle, XCircle, Eye, Lock, Target, BookOpen, Activity } from 'lucide-react';
+import { Users, Settings, Home, LogOut, Shield, AlertTriangle, CheckCircle, Target, BookOpen, Activity } from 'lucide-react';
 
 const SummerViewAdmin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -402,12 +402,12 @@ const SummerViewAdmin = () => {
         {/* Sidebar */}
         <div className="w-56 lg:w-64 bg-white shadow-xl border-r border-gray-200 flex flex-col relative">
           <div className="p-4 lg:p-6 border-b border-gray-200 flex-shrink-0">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Shield className="w-4 h-4 lg:w-6 lg:h-6 text-white" />
               </div>
-              <div>
-                <h1 className="text-lg lg:text-xl font-bold text-gray-900">SummerView</h1>
+              <div className="leading-tight">
+                <h1 className="text-base lg:text-lg font-bold text-gray-900 whitespace-nowrap">SummerView</h1>
                 <p className="text-xs lg:text-sm text-gray-600">Security Admin</p>
               </div>
             </div>
