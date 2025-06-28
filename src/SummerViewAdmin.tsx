@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, Users, Settings, FileText, Bell, Search, Menu, Home, TrendingUp, Calendar, Mail, User, LogOut, Shield, AlertTriangle, CheckCircle, XCircle, Eye, Lock, Target, BookOpen, Activity } from 'lucide-react';
+import { Users, Settings, Home, LogOut, Shield, AlertTriangle, CheckCircle, Target, BookOpen, Activity } from 'lucide-react';
 
 const SummerViewAdmin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
