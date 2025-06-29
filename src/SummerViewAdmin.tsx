@@ -31,7 +31,7 @@ const SummerViewAdmin = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-3xl font-bold text-gray-700 bg-clip-text">
                   SummerView
                 </h1>
                 <p className="text-gray-600 mt-2 font-medium">Security Admin Dashboard</p>
@@ -334,7 +334,7 @@ const SummerViewAdmin = () => {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                      className="bg-red-500 h-2 rounded-full"
                       style={{ width: `${policy.compliance}%` }}
                     ></div>
                   </div>
@@ -639,7 +639,7 @@ const SummerViewAdmin = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
           <div className="text-center">
-            <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">87%</div>
+            <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">42%</div>
             <div className="text-gray-600 text-sm lg:text-base">Average Report Rate</div>
           </div>
           <div className="text-center">
@@ -756,7 +756,7 @@ const SummerViewAdmin = () => {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                    className="bg-red-500 h-2 rounded-full"
                     style={{ width: `${module.completion}%` }}
                   ></div>
                 </div>
